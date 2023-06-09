@@ -1,10 +1,12 @@
 <template>
-  <h1>HOME</h1>
+  <div>
+    <h1>PEDIDOS</h1>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'HomeView',
+    name: 'PedidosView',
     components: {
     }
   }
