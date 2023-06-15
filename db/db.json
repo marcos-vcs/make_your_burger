@@ -95,7 +95,7 @@
       "carne": "Alcatra",
       "pao": "Italiano Branco",
       "opcionais": [],
-      "status": "Em produção",
+      "status": "Finalizado",
       "id": 2
     },
     {
@@ -103,7 +103,7 @@
       "carne": "Veggie burger",
       "pao": "Parmesão e Orégano",
       "opcionais": [],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 3
     },
     {

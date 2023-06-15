@@ -1,5 +1,5 @@
 <template>
-    <Message :msg="msg" v-show="msg"></Message>
+    <message :msg="msg" v-show="msg"></message>
     <div>
         <form id="burger-form" @submit="createBurger">
             <div class="input-container">

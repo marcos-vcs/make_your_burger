@@ -1,5 +1,6 @@
 <template>
     <div class="main-container">
+        <message :msg="msg" v-show="msg"></message>
         <div id="burger-table">
             <div>
                 <div id="burger-table-heading">
@@ -54,6 +55,7 @@ export default {
             burgers: null,
             burger_id: null,
             status: [],
+            msg: null,
         }
     },
     methods: {
@@ -77,6 +79,8 @@ export default {
 
             const res = await req.json();
 
+            this.msg = `Pedido removido com sucesso`;
+            setTimeout(() => { this.msg = ''; }, 3000);
 
             this.getPedidos();
         },
@@ -90,6 +94,8 @@ export default {
             });
 
             const res = await req.json();
+            this.msg = `O pedido Nº ${res.id} foi atualizado para ${res.status}`;
+            setTimeout(() => { this.msg = ''; }, 3000);
 
         }
     },
