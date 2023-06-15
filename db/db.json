@@ -125,6 +125,29 @@
       "opcionais": [],
       "status": "Solicitado",
       "id": 5
+    },
+    {
+      "nome": "Mário",
+      "carne": "Maminha",
+      "pao": "Parmesão e Orégano",
+      "opcionais": [
+        "Bacon",
+        "Salame",
+        "Cheddar"
+      ],
+      "status": "Solicitado",
+      "id": 6
+    },
+    {
+      "nome": "José Alves",
+      "carne": "Alcatra",
+      "pao": "Parmesão e Orégano",
+      "opcionais": [
+        "Bacon",
+        "Cheddar"
+      ],
+      "status": "Solicitado",
+      "id": 7
     }
   ]
 }
