@@ -92,8 +92,6 @@ export default {
             this.carne = '';
             this.pao = '';
             this.opcionais = '';
-
-
         }
     }
 }
