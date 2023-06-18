@@ -1,5 +1,5 @@
 <template>
-    <div id="message-container">
+    <div v-show="msg" id="message-container">
         <p>{{msg}}</p>
     </div>
 </template>
@@ -7,8 +7,16 @@
 <script>
 export default {
     name: 'Message',
-    props: {
-        'msg': String
+    data(){
+        return {
+            msg : ''
+        }
+    },
+    methods: {
+        get(msg){
+            this.msg = msg;
+            setTimeout(() => { this.msg = ''; }, 3000);
+        }
     }
 }
 </script>

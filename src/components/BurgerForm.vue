@@ -1,5 +1,5 @@
 <template>
-    <message :msg="msg" v-show="msg"></message>
+    <message ref="messageRef"></message>
     <div>
         <form id="burger-form" @submit="createBurger">
             <div class="input-container">
@@ -84,9 +84,7 @@ export default {
             });
 
             const res = await req.json();
-
-            this.msg = `Pedido Nº ${res.id} realizado com sucesso`;
-            setTimeout(() => { this.msg = ''; }, 3000);
+            this.$refs.messageRef.get(`Pedido Nº ${res.id} realizado com sucesso`);
             
             this.nome = '';
             this.carne = '';

@@ -1,6 +1,6 @@
 <template>
     <div class="main-container">
-        <message :msg="msg" v-show="msg"></message>
+        <message ref="messageRef"></message>
         <div id="burger-table">
             <div>
                 <div id="burger-table-heading">
@@ -79,9 +79,7 @@ export default {
 
             const res = await req.json();
 
-            this.msg = `Pedido removido com sucesso`;
-            setTimeout(() => { this.msg = ''; }, 3000);
-
+            this.$refs.messageRef.get(`Pedido removido com sucesso`);
             this.getPedidos();
         },
         async updateBurger(event, id){
@@ -94,9 +92,7 @@ export default {
             });
 
             const res = await req.json();
-            this.msg = `O pedido Nº ${res.id} foi atualizado para ${res.status}`;
-            setTimeout(() => { this.msg = ''; }, 3000);
-
+            this.$refs.messageRef.get(`O pedido Nº ${res.id} foi atualizado para ${res.status}`);
         }
     },
     mounted(){
