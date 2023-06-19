@@ -28,7 +28,7 @@
                         </td>
                         <td>
                             <select name="status" class="status" @change="updateBurger($event, burger.id)">
-                                <option value="">Selecione</option>
+                                <option value="default">Selecione</option>
                                 <option 
                                     v-for="s in status" 
                                     :key="s.id" 
@@ -90,6 +90,10 @@ export default {
         async updateBurger(event, id){
             const option = event.target.value;
             const dataJson = JSON.stringify({status: option});
+            if(!option || option === 'default'){
+                this.$refs.messageRef.get(`Opção selecionada é inválida`, 'danger');
+                return;
+            }
             const req = await fetch(`http://localhost:3000/burgers/${id}`,{
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
