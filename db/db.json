@@ -140,38 +140,6 @@
       ],
       "status": "Solicitado",
       "id": 7
-    },
-    {
-      "nome": null,
-      "carne": "default",
-      "pao": "default",
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 8
-    },
-    {
-      "nome": null,
-      "carne": "default",
-      "pao": "default",
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 9
-    },
-    {
-      "nome": null,
-      "carne": "default",
-      "pao": "default",
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 10
-    },
-    {
-      "nome": "",
-      "carne": "",
-      "pao": "",
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 11
     }
   ]
 }

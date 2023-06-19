@@ -1,28 +1,32 @@
 <template>
     <div class="main-container">
         <message ref="messageRef"></message>
-        <div id="burger-table">
-            <div>
-                <div id="burger-table-heading">
-                    <div class="order-id">#:</div>
-                    <div>Cliente:</div>
-                    <div>Pão:</div>
-                    <div>Carne:</div>
-                    <div>Opcionais:</div>
-                    <div>Ações:</div>
-                </div>
-                <div id="burger-table-rows">
-                    <div class="burger-table-row" v-for="burger in burgers" :key="burger.id">
-                        <div class="order-number">{{burger.id}}</div>
-                        <div>{{burger.nome}}</div>
-                        <div>{{burger.pao}}</div>
-                        <div>{{burger.carne}}</div>
-                        <div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#:</th>
+                        <th>Clientes:</th>
+                        <th>Pão:</th>
+                        <th>Carne:</th>
+                        <th>Opcionais:</th>
+                        <th>Ações:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="burger in burgers" :key="burger.id">
+                        <td>{{ burger.id }}</td>
+                        <td>{{ burger.nome }}</td>
+                        <td>{{ burger.pao }}</td>
+                        <td>{{ burger.carne }}</td>
+                        <td>
                             <ul>
-                                <li v-for="(opcional, index) in burger.opcionais" :key="index">{{opcional}}</li>
+                                <li v-for="(opcional, index) in burger.opcionais" :key="index">
+                                    {{opcional}}
+                                </li>
                             </ul>
-                        </div>
-                        <div>
+                        </td>
+                        <td>
                             <select name="status" class="status" @change="updateBurger($event, burger.id)">
                                 <option value="">Selecione</option>
                                 <option 
@@ -34,10 +38,11 @@
                                 </option>
                             </select>
                             <button class="delete-btn" @click="deleteBurger(burger.id)">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </template>
@@ -102,38 +107,81 @@ export default {
 </script>
 
 <style scoped>
-#burger-table {
-    max-width: 1200px;
-    margin: 0 auto;
+.table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
 }
-
-#burger-table-heading,
-#burger-table-rows,
-.burger-table-row {
-    display: flex;
-    flex-wrap: wrap;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
 }
-
-#burger-table-heading {
+table thead{
     font-weight: bold;
     padding: 12px;
     border-bottom: 3px solid #333;
 }
-
-#burger-table-heading div,
-.burger-table-row div {
-    width: 19%;
+table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+table tbody tr:last-child{
+    border-bottom: none;
 }
 
-.burger-table-row {
-    width: 100%;
-    padding: 12px;
-    border-bottom: 1px solid #ccc;
+thead tr th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
 }
 
-#burger-table-heading .order-id,
-.burger-table-row .order-number {
-    width: 5%;
+tbody tr td{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+td:first-child{
+    text-align: left;
+    min-width: 60px;    
+}
+
+thead tr th:first-child + th{
+    text-align: left;
+}
+td:first-child + td{
+    text-align: left;
+    min-width: 350px;
+}
+
+thead tr th:first-child + th + th{
+    text-align: left;
+}
+td:first-child + td + td{
+    text-align: left;
+    min-width: 200px;
+}
+
+thead tr th:first-child + th + th + th{
+    text-align: left;
+}
+td:first-child + td + td + td{
+    text-align: left;
+    min-width: 170px;
+}
+
+thead tr th:first-child + th + th + th + th{
+    text-align: left;
+}
+td:first-child + td + td + td + td{
+    text-align: left;
+    min-width: 120px;
+}
+
+thead tr th:last-child{
+    text-align: left;
+}
+td:last-child{
+    text-align: left;
+    min-width: 220px;
 }
 
 select {
