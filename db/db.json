@@ -79,18 +79,6 @@
   ],
   "burgers": [
     {
-      "nome": "Zé",
-      "carne": "Picanha",
-      "pao": "Integral",
-      "opcionais": [
-        "Bacon",
-        "Salame",
-        "Tomate"
-      ],
-      "status": "Solicitado",
-      "id": 1
-    },
-    {
       "nome": "João",
       "carne": "Veggie burger",
       "pao": "Parmesão e Orégano",

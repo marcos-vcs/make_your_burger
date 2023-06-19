@@ -84,7 +84,7 @@ export default {
 
             const res = await req.json();
 
-            this.$refs.messageRef.get(`Pedido removido com sucesso`);
+            this.$refs.messageRef.get(`Pedido removido com sucesso`, 'danger');
             this.getPedidos();
         },
         async updateBurger(event, id){
@@ -97,7 +97,7 @@ export default {
             });
 
             const res = await req.json();
-            this.$refs.messageRef.get(`O pedido Nº ${res.id} foi atualizado para ${res.status}`);
+            this.$refs.messageRef.get(`O pedido Nº ${res.id} foi atualizado para ${res.status}`, 'success');
         }
     },
     mounted(){

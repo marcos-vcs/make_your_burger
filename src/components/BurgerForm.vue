@@ -84,7 +84,7 @@ export default {
             });
 
             const res = await req.json();
-            this.$refs.messageRef.get(`Pedido Nº ${res.id} realizado com sucesso`);
+            this.$refs.messageRef.get(`Pedido Nº ${res.id} realizado com sucesso`, 'success');
             
             this.nome = '';
             this.carne = '';
