@@ -75,6 +75,10 @@ export default {
                 opcionais: Array.from(this.opcionais),
                 status: 'Solicitado'
             }
+            if(!this.validation(data)){
+                return;
+            }
+
             const dataJson = JSON.stringify(data);
 
             const req = await fetch('http://localhost:3000/burgers', {
@@ -87,9 +91,27 @@ export default {
             this.$refs.messageRef.get(`Pedido Nº ${res.id} realizado com sucesso`, 'success');
             
             this.nome = '';
-            this.carne = '';
-            this.pao = '';
+            this.carne = 'default';
+            this.pao = 'default';
             this.opcionais = [];
+        },
+        validation(data){
+            if(!data.nome && (!data.pao || data.pao === 'default') && (!data.carne || data.carne === 'default')){
+                this.$refs.messageRef.get(`Informe os dados do pedido`, 'danger');
+                return false;
+            }else if(!data.nome){
+                this.$refs.messageRef.get(`Informe o nome do pedido`, 'danger');
+                return false;
+            }else if(!data.pao || data.pao === 'default'){
+                this.$refs.messageRef.get(`Informe o pão do pedido`, 'danger');
+                return false;
+            }else if(!data.carne || data.carne === 'default'){
+                this.$refs.messageRef.get(`Informe a carne do pedido`, 'danger');
+                return false;
+            }
+
+            return true;
+
         }
     }
 }
